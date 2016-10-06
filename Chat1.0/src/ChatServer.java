@@ -61,25 +61,25 @@ System.out.println("a client connected!");
 		
 		public void run() {
 			
-				try {
-					while(bConnected) {
-						String str = dis.readUTF();
-						System.out.println(str);
-					}
-				} catch (EOFException e){
-					System.out.println("a client closed!");
-				}catch (IOException e) {
-					e.printStackTrace();
-				} finally {
-					try {
-						if(dis != null)dis.close();
-						if(s != null)s.close();
-					} catch (IOException  e1) {
-						e1.printStackTrace();
-					}
+			try {
+				while(bConnected) {
+					String str = dis.readUTF();
+					System.out.println(str);
 				}
-			
+			} catch (EOFException e){
+				System.out.println("a client closed!");
+			}catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					if(dis != null)dis.close();
+					if(s != null)s.close();
+				} catch (IOException  e1) {
+					e1.printStackTrace();
+				}
+			}
 		}
 		
 	}
+
 }
